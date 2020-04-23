@@ -7,63 +7,58 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Shop Me',
-      theme: ThemeData(
-          primaryColor: Color(0xffa40000),
-          fontFamily: 'Roboto'),
+      theme: ThemeData(primaryColor: Color(0xffa40000), fontFamily: 'Roboto'),
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  final List category = [
-    {
-      'label': 'Menswear',
-      'image': 'images/blue-t-shirt.jpg',
-    },
-    {
-      'label': 'Womenswear',
-      'image': 'images/blue-t-shirt.jpg',
-    },
-    {
-      'label': 'Kidswear',
-      'image': 'images/blue-t-shirt.jpg',
-    },
-    {
-      'label': 'Fashion Accessories',
-      'image': 'images/blue-t-shirt.jpg',
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Shop Me'),
-      ),
       body: ListView(
         children: <Widget>[
           Container(
+            padding: EdgeInsets.only(left: 10,right: 10,top: 10),
             height: 200,
             width: double.infinity,
             color: Theme.of(context).primaryColor,
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Icon(Icons.menu,color: Colors.white,size: 30,),
+                    Text('Shop Me',style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30
+                    ),),
+                    Icon(Icons.search,color: Colors.white,size: 30,),
+                  ],
+                )
+              ],
+            ),
           ),
           Container(
             height: 220,
             child: Row(
               children: <Widget>[
                 Expanded(
-                    child: DisplayCard(
-                  image: 'images/blue-t-shirt.jpg',
-                  label: 'Mobile & Electronics',
-                  onTap: () => print('Card1 Pressed'),
-                )),
+                  child: DisplayCard(
+                    image: 'images/blue-t-shirt.jpg',
+                    label: 'Mobile & Electronics',
+                    onTap: () => print('Card1 Pressed'),
+                  ),
+                ),
                 Expanded(
-                    child: DisplayCard(
-                  image: 'images/laptop-coffee.jpg',
-                  label: 'IT & Computers',
-                ))
+                  child: DisplayCard(
+                    image: 'images/laptop-coffee.jpg',
+                    label: 'IT & Computers',
+                  ),
+                ),
               ],
             ),
           ),
