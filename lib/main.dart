@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(left: 10,right: 10,top: 10),
+            padding: EdgeInsets.only(left: 10, right: 10, top: 10),
             height: 200,
             width: double.infinity,
             color: Theme.of(context).primaryColor,
@@ -31,12 +31,36 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Icon(Icons.menu,color: Colors.white,size: 30,),
-                    Text('Shop Me',style: TextStyle(
+                    Icon(
+                      Icons.menu,
                       color: Colors.white,
-                      fontSize: 30
-                    ),),
-                    Icon(Icons.search,color: Colors.white,size: 30,),
+                      size: 30,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'Shop Me',
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        cursorColor: Colors.black,
+                        decoration: InputDecoration(
+                          hintText: 'Search Me',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 1),
+                        ),
+                      ),
+                    )
                   ],
                 )
               ],
